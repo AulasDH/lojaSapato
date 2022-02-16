@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
 
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
 h1 {
     font-weight: 800;
     font-size: 60px;
@@ -21,6 +32,7 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    box-shadow: 0px 1px 20px rgba(159, 159, 159, 0.65);
 }
 
 header nav {
@@ -37,85 +49,6 @@ header nav ul {
     line-height: 33px;
 
     color: #777777;
-}
-
-section#banner img {
-    width: 100%;
-}
-
-section#home {
-    text-align: center;
-    gap: 2px;
-}
-
-section#home img {
-    margin: 27px;
-}
-
-section#sales {
-    background: #c2185b;
-    padding: 61px;
-}
-
-section#sales h2 {
-    text-align: center;
-}
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 18px;
-}
-
-section#sales .card {
-    background-color: #ffffff;
-}
-
-section#sales .card p {
-    font-weight: 600;
-    font-size: 16px;
-    margin: 0;
-}
-
-section#sales .card span {
-    font-size: 16px;
-}
-
-section#sales .card .content {
-    padding: 11px 11px 25px 11px;
-}
-
-section#detailed {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-
-    margin: 160px 0;
-}
-
-section#detailed button {
-    width: 403px;
-    height: 99px;
-    background: #c2185b;
-
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 39px;
-
-    border: none;
-    margin-bottom: 50px;
-}
-
-section#detailed > div {
-    display: flex;
-    flex-direction: column;
-}
-
-body {
-    font-family: "Open Sans", sans-serif;
-    margin: 0;
-    padding: 0;
 }
 
 .margin-list li {
@@ -149,4 +82,8 @@ footer ul {
 footer ul li.title {
     font-weight: bold;
     font-size: 20px;
+}
+
+.margin-list li:hover {
+    color: #c2185b;
 }

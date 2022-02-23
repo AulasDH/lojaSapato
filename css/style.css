@@ -84,6 +84,12 @@ footer ul li.title {
     font-size: 20px;
 }
 
+footer a {
+    font-style: normal;
+    color: #fff;
+    text-decoration: none;
+}
+
 .margin-list li:hover {
     color: #c2185b;
 }

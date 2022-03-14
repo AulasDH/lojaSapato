@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { uuid } = require('uuidv4');
+const { v4: uuid } = require('uuid');
 
 const sapatosController = {
   buscarPaginaCadastro: (request, response) => {

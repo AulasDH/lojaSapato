@@ -16,10 +16,13 @@ const sapatosController = {
     // transformei string em JSON
     const sapatosJSON = JSON.parse(sapatosArquivo);
 
+    console.log(request.file);
+
     // criei um novo objeto com todo cadastro + um novo UUID (identificador)
     const novoSapato = {
       id: uuid(),
-      ...request.body //{nome: teste} -> {nome:teste} 
+      ...request.body,
+      fileName: request.file.filename
     }
 
     // inserindo meu novo sapato no array de sapatos

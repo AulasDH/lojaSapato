@@ -1,15 +1,7 @@
-import { DataTypes } from 'sequelize/types';
-
-/**
- * 
- * @param {*} sequelize 
- * @param {DataTypes} dataTypes 
- * @returns 
- */
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     const tableDefinitions = {
         id: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             primaryKey: true,
         },
         descricao: {
@@ -25,7 +17,7 @@ module.exports = (sequelize, dataTypes) => {
 
     const tableConfiguration = {
         tableName: 'sapatos',
-        timestamp: false,
+        timestamps: false,
     }
     
     const Sapato = sequelize.define('Sapato', tableDefinitions, tableConfiguration);

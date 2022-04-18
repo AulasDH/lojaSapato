@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const mainController = {
-  index: (request, response) => {
+  index: async (request, response) => {
     const nomeArquivosSapatos = 'sapatos.json';
 
     // buscou sapatos no arquivo sapatos.json
@@ -9,6 +9,11 @@ const mainController = {
 
     // transformou uma string em json '[]' -> []
     const sapatos = JSON.parse(sapatosArquivo);
+
+    const db = require('../../database/models');
+
+    let todosSapatos = await db.Sapato.findAll();
+    console.log(todosSapatos[0].descricao);
 
     // pedi pra redenrizar com os sapatos que estavam no arquivo
     response.render('index', {

@@ -22,6 +22,16 @@ const sapatosController = {
     //redireciono para tela inical
     response.redirect('/');
   },
+
+  edit: async (request, response) => {
+    const { id } = request.params;
+
+    let sapato = await Sapato.findByPk(id);
+
+    response.render('editSapato', {
+      sapato
+    });
+  }
 }
 
 // usuario chama uma url com metodo

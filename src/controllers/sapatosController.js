@@ -31,6 +31,24 @@ const sapatosController = {
     response.render('editSapato', {
       sapato
     });
+  },
+
+  update: async (request, response) => {
+    const { id } = request.params;
+    const { descricao, valor, filename } = request.body;
+
+    await Sapato.update({
+      descricao,
+      valor,
+      filename,
+    },
+    {
+      where: {
+        id
+      }
+    })
+    
+    response.redirect('/');
   }
 }
 

@@ -1,3 +1,5 @@
+const { Sapato } = require('../../database/models');
+
 const fs = require('fs');
 const { v4: uuid } = require('uuid');
 
@@ -7,29 +9,15 @@ const sapatosController = {
       title: 'Express',
     });
   },
-  create: (request, response) => {
-    const nomeArquivosSapatos = 'sapatos.json';
-
-    // busquei o arquivo sapatos.json
-    const sapatosArquivo = fs.readFileSync(nomeArquivosSapatos);
-
-    // transformei string em JSON
-    const sapatosJSON = JSON.parse(sapatosArquivo);
-
-    console.log(request.file);
-
+  create: async (request, response) => {
     // criei um novo objeto com todo cadastro + um novo UUID (identificador)
     const novoSapato = {
       id: uuid(),
       ...request.body,
-      fileName: request.file.filename
+      filename: request.file.filename
     }
 
-    // inserindo meu novo sapato no array de sapatos
-    sapatosJSON.push(novoSapato);
-
-    // grava todos os sapatos no arquivo
-    fs.writeFileSync(nomeArquivosSapatos, JSON.stringify(sapatosJSON))
+    await Sapato.create(novoSapato);
 
     //redireciono para tela inical
     response.redirect('/');

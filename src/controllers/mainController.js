@@ -6,7 +6,7 @@ const mainController = {
     let sapatos = todosSapatos.map((sapato) => {
       return {
         id: sapato.id,
-        descricao: sapato.id + " - " + sapato.descricao,
+        descricao: sapato.descricao,
         valor: sapato.valor,
       }
     })

@@ -11,6 +11,6 @@ const upload = multer({ storage });
 router.get('/cadastro', sapatosController.buscarPaginaCadastro);
 
 // /sapatos [POST]
-router.post('/', upload.single('imagem'), sapatosController.create);
+router.post('/', upload.single('abobrinha'), sapatosController.create);
 
 module.exports = router;

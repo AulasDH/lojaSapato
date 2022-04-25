@@ -1,9 +1,10 @@
 const fs = require('fs');
 const { v4: uuid } = require('uuid');
+const bcrypt = require('bcryptjs');
 
 
-// const variavel = { 
-//   v4: () => { } 
+// const variavel = {
+//   v4: () => { }
 // }
 
 // const { v4: uuid } = variavel;
@@ -17,10 +18,18 @@ const usuariosController = {
     const usuariosArquivo = fs.readFileSync(nomeArquivosUsuarios);
     const usuariosJSON = JSON.parse(usuariosArquivo);
 
+    // request.file
+
+    console.log('imprimindo', request.abobrinha);
+    const hash = bcrypt.hashSync(request.body.senha);
+
     const novoUsuario = {
       id: uuid(),
-      ...request.body //{nome: teste} -> {nome:teste} 
+      ...request.body,
+      senha: hash,
     }
+
+    delete novoUsuario.confirmacaoSenhaa;
 
     usuariosJSON.push(novoUsuario);
 
